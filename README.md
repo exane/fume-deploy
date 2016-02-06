@@ -12,7 +12,7 @@ One of the problems I always have when I come back after months: Which files are
 ## How to use
 Fume-deploy is heavily inspired by gulp. Currently you setup a fumefile.js file and put it into your root folder.
 
-The script gets execute via "node fumefile.js"
+The script starts with "node fumefile.js"
 ## Getting familiar with fume-deploy
 If you want to see fume-deploy in action you can do the following steps:
 
