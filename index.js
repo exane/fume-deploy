@@ -5,7 +5,6 @@ var buffer = require("buffer");
 var fs = require("fs-extra");
 var path = require("path");
 var spawnArgs = require("spawn-args");
-require("babel-core").transform("code");
 
 var fume = {
   path: "",
@@ -43,7 +42,9 @@ fume.execute = function(cmd, options) {
   process.chdir(this.currentPath);
 
   var c = parseCmd(cmd);
-  var useExec = c.args.some(e => e == "<" || e == ">");
+  var useExec = c.args.some(function(e) {
+    return e == "<" || e == ">"
+  });
   var result;
 
   try {
@@ -75,12 +76,13 @@ fume.execute = function(cmd, options) {
 }
 
 fume.ignore = function(p) {
-  fume._ignore = ignore = [...ignore, {
+  ignore.push({
     absolute: path.resolve(p),
     relative: p
-  }];
+  });
+
   return {
-    ignore: fume.ignore
+    ignore: ignore
   };
 }
 
@@ -107,7 +109,9 @@ var gitClone = function(git) {
 var copyTempFilesToRoot = function() {
   process.chdir(this.root);
 
-  fs.ensureDirSync(path.resolve(fume.options.tempfolder), (err) => log(err));
+  fs.ensureDirSync(path.resolve(fume.options.tempfolder), function(err) {
+    log(err)
+  });
   fs.copySync(path.resolve(fume.options.tempfolder), this.root);
 
   process.chdir(this.currentPath);
@@ -118,7 +122,7 @@ var clearUp = function() {
 }
 
 var handleIgnoreFiles = function() {
-  ignore.forEach(p => {
+  ignore.forEach(function(p) {
     fs.copySync(p.absolute, path.resolve(fume.options.tempfolder, p.relative));
   })
 }
@@ -177,7 +181,7 @@ fume.immediately = function(task) {
 
 fume.start = function() {
   log("starting");
-  tasks.forEach(task => {
+  tasks.forEach(function(task) {
     task.call(this);
   })
   this._done();
