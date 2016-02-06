@@ -1,6 +1,6 @@
 # Fume-deploy
 
-Fume-deploy is a simple deployment script in a very early stage.
+Fume-deploy is a simple deployment script for git in a very early stage.
 
 
 ## Motivation
