@@ -10,8 +10,13 @@ I often have the problem that I'm working on a project and as soon as I finished
 One of the problems I always have when I come back after months: Which files are config files, build-files and which requires special treatment? If I wanted to update my old code base (and deploy + build it after) I often couldn't simply overwrite all files. I had to check each folder myself and tried to remember which file I shouldn't overwrite or have to manually edit later.
 
 ## How to use
-Fume-deploy is heavily inspired by gulp. Currently you setup a fumefile.js file and put it into your root folder.
+Fume-deploy is heavily inspired by gulp. 
 
+You need to add it in your project dependencies with 
+```
+npm install fume-deploy --save
+```
+Then you set up a fumefile.js file in your root folder.
 The script starts with "node fumefile.js"
 ## Getting familiar with fume-deploy
 If you want to see fume-deploy in action you can do the following steps:
