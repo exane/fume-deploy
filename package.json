@@ -1,12 +1,19 @@
 {
   "name": "fume-deploy",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Fume-deploy is a simple deployment script for git in a very early stage.",
   "main": "index.js",
   "scripts": {
     "test": "mocha"
   },
-  "keywords": ["deploy", "git", "script", "npm", "gulp", "fume"],
+  "keywords": [
+    "deploy",
+    "git",
+    "script",
+    "npm",
+    "gulp",
+    "fume"
+  ],
   "author": {
     "name": "Tim Meier",
     "email": "raco0n@gmx.de"
