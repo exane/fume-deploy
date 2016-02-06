@@ -1,3 +1,5 @@
+[![npm version](https://badge.fury.io/js/fume-deploy.png)](https://badge.fury.io/js/fume-deploy)
+
 # Fume-deploy
 
 Fume-deploy is a simple deployment script for git in a very early stage.
