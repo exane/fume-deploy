@@ -1,0 +1,28 @@
+{
+  "name": "fume-deploy",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "",
+  "license": "ISC",
+  "bin": {
+	"fume-deploy": "./index.js"
+  },
+  "dependencies": {
+    "babel-core": "^6.4.5",
+    "cross-spawn": "^2.1.5",
+    "fs-extra": "^0.26.5",
+    "spawn-args": "^0.1.0"
+  },
+  "engines": {
+	"node": ">=4.0.0"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^2.4.5",
+    "sinon": "^1.17.3"
+  }
+}
