@@ -13,6 +13,14 @@ One of the problems I always have when I come back after months: Which files are
 Fume-deploy is heavily inspired by gulp. Currently you setup a fumefile.js file and put it into your root folder.
 
 The script gets execute via "node fumefile.js"
+## Getting familiar with fume-deploy
+If you want to see fume-deploy in action you can do the following steps:
+
+- Fork [fume-deploy test-repo](https://github.com/exane/test-repo)
+- Clone your fork
+- Process the readme of the test-repo
+- Open fumefile.js and change the deploy url to your fork
+- Run in your commandline: node fumefile
 
 
 
