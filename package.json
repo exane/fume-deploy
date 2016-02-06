@@ -1,15 +1,26 @@
 {
   "name": "fume-deploy",
   "version": "0.0.2",
-  "description": "",
+  "description": "Fume-deploy is a simple deployment script for git in a very early stage.",
   "main": "index.js",
   "scripts": {
     "test": "mocha"
   },
-  "author": "",
-  "license": "ISC",
+  "keywords": ["deploy", "git", "script", "npm", "gulp", "fume"],
+  "author": {
+    "name": "Tim Meier",
+    "email": "raco0n@gmx.de"
+  },
+  "license": "MIT",
   "bin": {
     "fume-deploy": "./index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/exane/fume-deploy"
+  },
+  "bugs": {
+    "url": "https://github.com/exane/fume-deploy/issues"
   },
   "dependencies": {
     "cross-spawn": "^2.1.5",
