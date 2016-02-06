@@ -1,6 +1,6 @@
 {
   "name": "fume-deploy",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -9,7 +9,7 @@
   "author": "",
   "license": "ISC",
   "bin": {
-	"fume-deploy": "./index.js"
+    "fume-deploy": "./index.js"
   },
   "dependencies": {
     "cross-spawn": "^2.1.5",
@@ -17,7 +17,7 @@
     "spawn-args": "^0.1.0"
   },
   "engines": {
-	"node": ">=4.0.0"
+    "node": ">=4.0.0"
   },
   "devDependencies": {
     "chai": "^3.5.0",
