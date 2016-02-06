@@ -22,6 +22,9 @@ If you want to see fume-deploy in action you can do the following steps:
 - Open fumefile.js and change the deploy url to your fork
 - Run in your commandline: node fumefile
 
+You can now push commits to your repository and after running 'node fumefile' again you'll notice that without
+any further action the app will run. So you can deploy your updated app without thinking about to change your config file afterwards.
+
 
 
 ## Syntax
