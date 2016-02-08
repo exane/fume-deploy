@@ -12,7 +12,10 @@ var fume = {
   currentPath: process.cwd()
 };
 var tasks = fume._tasks = [];
+var keep = fume._keep = [];
 var ignore = fume._ignore = [];
+
+
 
 var log = function() {
   if(process.env.NODE_ENV !== 'test') return;
@@ -76,18 +79,25 @@ fume.execute = function(cmd, options) {
 }
 
 fume.keep = function(p) {
+  keep.push({
+    absolute: path.resolve(p),
+    relative: p
+  });
+
+  return {
+    keep: this.keep.bind(this)
+  };
+}
+
+fume.ignore = function(p) {
   ignore.push({
     absolute: path.resolve(p),
     relative: p
   });
 
   return {
-    ignore: ignore
+    ignore: this.ignore.bind(this)
   };
-}
-
-fume.ignore = function(p) {
-  
 }
 
 
@@ -96,10 +106,16 @@ var backup = function() {
   fs.removeSync(path.resolve(this.root, fume.options.backupfolder));
 
   fs.mkdirSync(fume.options.backupfolder);
+
+
   var content = fs.readdirSync("./");
   content.forEach(function(f) {
-    //log(f);
-    if(f === "fumefile.js" || f == fume.options.backupfolder || f == fume.options.tempfolder) return;
+    if(f == fume.options.backupfolder || f == fume.options.tempfolder) return;
+    if(ignore.some(function(e) {
+        return path.relative(fume.root, f) == path.relative(fume.root, e.relative);
+      })) {
+      return;
+    }
     fs.renameSync("./" + f, "./" + fume.options.backupfolder + "/" + f);
   })
 }
@@ -125,8 +141,8 @@ var clearUp = function() {
   fs.removeSync(path.resolve(this.root, fume.options.tempfolder));
 }
 
-var handleIgnoreFiles = function() {
-  ignore.forEach(function(p) {
+var handleKeepFiles = function() {
+  keep.forEach(function(p) {
     fs.copySync(p.absolute, path.resolve(fume.options.tempfolder, p.relative));
   })
 }
@@ -141,7 +157,7 @@ var handleIgnoreFiles = function() {
 fume.deploy = function(git) {
   log("deploying %s", git);
   gitClone.call(this, git);
-  handleIgnoreFiles.call(this);
+  handleKeepFiles.call(this);
   backup.call(this);
 
   log("cloning concluded");
@@ -190,6 +206,8 @@ fume.start = function() {
   })
   this._done();
 }
+
+fume.ignore("./fumefile.js");
 
 module.exports = fume;
 
