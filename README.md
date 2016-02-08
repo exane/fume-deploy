@@ -41,7 +41,7 @@ As an example of how a fumefile could look like:
 ```javascript
 var fume = require("fume-deploy");
 
-//the ignore function saves directories and files from being overwritten (from build process or if
+//the keep function saves directories and files from being overwritten (from build process or if
 //the newly cloned repository doesn't contain files, like api keys or other sensible data)
 fume.keep("./config"); //whole directory
 fume.keep("./SECRET_TEXT.txt"); //single file
