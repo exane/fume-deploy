@@ -1,6 +1,6 @@
 {
   "name": "fume-deploy",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Fume-deploy is a simple deployment script for git in a very early stage.",
   "main": "index.js",
   "scripts": {
