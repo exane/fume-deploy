@@ -43,8 +43,11 @@ var fume = require("fume-deploy");
 
 //the ignore function saves directories and files from being overwritten (from build process or if
 //the newly cloned repository doesn't contain files, like api keys or other sensible data)
-fume.ignore("./config"); //whole directory
-fume.ignore("./SECRET_TEXT.txt"); //single file
+fume.keep("./config"); //whole directory
+fume.keep("./SECRET_TEXT.txt"); //single file
+
+//don't care files, they won't getting copied or moved
+fume.ignore("./.htaccess");
 
 //not necessary, since both are default values
 fume.options.tempfolder = ".fume.tmp";
