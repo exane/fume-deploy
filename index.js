@@ -75,7 +75,7 @@ fume.execute = function(cmd, options) {
   }
 }
 
-fume.ignore = function(p) {
+fume.keep = function(p) {
   ignore.push({
     absolute: path.resolve(p),
     relative: p
@@ -84,6 +84,10 @@ fume.ignore = function(p) {
   return {
     ignore: ignore
   };
+}
+
+fume.ignore = function(p) {
+  
 }
 
 
